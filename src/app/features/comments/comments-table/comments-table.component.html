@@ -1,1 +1,19 @@
-<p>comments-table works!</p>
+<table matSort (matSortChange)="sortData($event)">
+  <thead>
+    <tr>
+      @for (column of columns; track $index) {
+        <th [mat-sort-header]="column">{{ column | titlecase }}</th>
+      }
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (comment of comments$ | async; track comment.id) {
+      <tr>
+        @for (column of columns; track $index) {
+          <td>{{ comment[column] }}</td>
+        }
+      </tr>
+    }
+  </tbody>
+</table>

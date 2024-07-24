@@ -1,0 +1,21 @@
+:host {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  --mat-toolbar-container-background-color: transparent;
+}
+
+nav {
+  display: flex;
+  column-gap: 8px;
+  padding: 8px 0;
+  position: sticky;
+  left: 16px;
+}
+
+a {
+  &.is-active {
+    color: var(--mdc-filled-button-label-text-color);
+    background-color: var(--mdc-filled-button-container-color);
+  }
+}

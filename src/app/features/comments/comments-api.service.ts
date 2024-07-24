@@ -1,5 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Comment } from './state/comments.model';
 
 @Injectable({ providedIn: 'root' })
 export class CommentsApiService {

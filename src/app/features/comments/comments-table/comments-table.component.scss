@@ -1,0 +1,12 @@
+table {
+  width: 100%;
+  border-spacing: 0;
+  box-shadow: var(--mat-app-elevation-shadow-level-8, none);
+
+  td,
+  th {
+    border-bottom: 1px solid var(--mat-table-row-item-outline-color);
+    padding: 8px;
+    text-align: left;
+  }
+}

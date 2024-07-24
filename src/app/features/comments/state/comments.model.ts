@@ -1,3 +1,5 @@
+import { Sort } from '@angular/material/sort';
+
 export interface Comment {
   id: number;
   postId: number;
@@ -5,3 +7,5 @@ export interface Comment {
   body: string;
   email: string;
 }
+
+export type SortModel = Sort;

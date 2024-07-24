@@ -1,6 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CommentsToolbarComponent } from './comments-toolbar/comments-toolbar.component';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+
+import { CommentsToolbarComponent } from './comments-toolbar/comments-toolbar.component';
+import { CommentsFacade } from './state/comments.facade';
 
 @Component({
   selector: 'app-comments',
@@ -10,4 +12,10 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './comments.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CommentsComponent {}
+export class CommentsComponent implements OnInit {
+  private commentsFacade = inject(CommentsFacade);
+
+  ngOnInit() {
+    this.commentsFacade.loadComments();
+  }
+}
