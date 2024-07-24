@@ -24,6 +24,7 @@ export const reducer = createReducer(
   initialState,
   on(CommentsActions.loadComments, (state) => ({ ...state, loading: true })),
   on(CommentsActions.loadCommentsSuccess, (state, { comments }) => ({ ...state, loading: false, data: comments })),
+  on(CommentsActions.addCommentSuccess, (state, { comment }) => ({ ...state, loading: false, data: [...state.data, comment] })),
   on(CommentsActions.sortComments, (state, { sort }) => ({ ...state, sort })),
   on(CommentsActions.clearComments, () => initialState)
 );
@@ -45,4 +46,4 @@ function compare(a: number | string, b: number | string, isAsc: boolean) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }
 
-export const { selectLoading, selectCommentsSorted, selectSort, selectData } = commentsFeature;
+export const { selectLoading, selectCommentsSorted, selectSort, selectData, selectError } = commentsFeature;

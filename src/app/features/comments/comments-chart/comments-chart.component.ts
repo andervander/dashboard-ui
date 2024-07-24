@@ -40,7 +40,7 @@ export class CommentsChartComponent implements AfterViewInit {
     const chartData: Data[] = [
       {
         type: 'pie',
-        textinfo: 'none',
+        textinfo: 'percent',
         values: Object.values(dataSet),
         labels: Object.keys(dataSet)
       }

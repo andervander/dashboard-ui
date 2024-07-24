@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>Add Comment To a Post</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="addForm">
+    @if (error$ | async) {
+      <mat-error>Something happened, please try again</mat-error>
+    }
+    <mat-form-field>
+      <mat-label>Post ID</mat-label>
+      <select matNativeControl required formControlName="postId">
+        @for (id of postIds; track $index) {
+          <option [value]="id">{{ id }}</option>
+        }
+      </select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Name" formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" formControlName="email" />
+      @if (addForm.controls.email.hasError('email') && !addForm.controls.email.hasError('required')) {
+        <mat-error>Please enter a valid email address</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Body</mat-label>
+      <textarea matInput placeholder="Comment" formControlName="body"></textarea>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="addComment()" [disabled]="loading$ | async">Add</button>
+</mat-dialog-actions>

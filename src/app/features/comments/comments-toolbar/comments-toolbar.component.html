@@ -6,5 +6,9 @@
     <a mat-mini-fab routerLink="chart" routerLinkActive="is-active" aria-label="Chart view">
       <mat-icon>analytics</mat-icon>
     </a>
+
+    <button mat-mini-fab (click)="addCommentNav.emit()" aria-label="Add comment">
+      <mat-icon>add_box</mat-icon>
+    </button>
   </nav>
 </mat-toolbar>

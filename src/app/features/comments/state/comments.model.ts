@@ -9,3 +9,5 @@ export interface Comment {
 }
 
 export type SortModel = Sort;
+
+export type AddComment = Omit<Comment, 'id'>;
